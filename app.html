@@ -1,0 +1,53 @@
+<section id="todoapp">
+    <header id="header">
+        <h1>todos</h1>
+        <input id="new-todo" placeholder="What needs to be done?" autofocus>
+    </header>
+    <section id="main">
+        <input id="toggle-all" type="checkbox">
+        <label for="toggle-all">Mark all as complete</label>
+        <ul id="todo-list"></ul>
+    </section>
+    <footer id="footer">
+        <span id="todo-count"><strong>0</strong> item left</span>
+        <button id="clear-completed">Clear completed</button>
+    </footer>
+</section>
+<footer id="info">
+    <p>Double-click to edit a todo</p>
+    <p>Created by <a href="http://github.com/Ghost-White">Ghost-White</a></p>
+</footer>
+
+<!-- ************************************* template begin *********************************** -->
+<!-- 针对模型的模板 -->
+<script id="todo-template" type="text/x-handlebars-template">
+    <!-- 这里对todo模型数组进行迭代循环 -->
+    {{#this}}
+    <!-- 会看到，这里具有简单的if语句，即这里具备显示逻辑 -->
+    <li {{#if completed}}class="completed"{{/if}} data-id="{{id}}">
+        <div class="view">
+            <input class="toggle" type="checkbox" {{#if completed}}checked{{/if}}>
+            <label>{{title}}</label>
+            <button class="destroy"></button>
+        </div>
+        <input class="edit" value="{{title}}">
+    </li>
+    {{/this}}
+</script>
+<!-- /针对模型的模板 -->
+<!-- footer模板，记录还剩下多少没有完成等 -->
+<script id="footer-template" type="text/x-handlebars-template">
+    <span id="todo-count"><strong>{{activeTodoCount}}</strong> {{activeTodoWord}} left</span>
+    {{#if completedTodos}}
+        <button id="clear-completed">Clear completed ({{completedTodos}})</button>
+    {{/if}}
+</script>
+<!-- /footer模板 -->
+<!-- ************************************* template end *********************************** -->
+
+<script src="js/base/base.js"></script>
+<script src="js/lib/jquery.js"></script>
+<script src="js/lib/handlebars.js"></script>
+
+<!-- app begin -->
+<script src="js/app.js"></script>

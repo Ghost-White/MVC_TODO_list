@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>todo_list MVC</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="wrapper">
+	<section id="todoapp">
+	    <header id="header">
+	        <h1>todos</h1>
+	        <div class="input">
+	        	<input id="toggle-all" type="checkbox">
+		        <label for="toggle-all"></label>
+	        	<input id="new-todo" placeholder="What needs to be done?" autofocus>
+	        </div>    
+	    </header>
+	    <section id="main">
+	        
+	        <ul id="todo-list"></ul>
+	    </section>
+	    <footer id="footer">
+	        <span id="todo-count"><strong>0</strong> item left</span>
+	        <button id="clear-completed">Clear completed</button>
+	    </footer>
+	</section>
+	<footer id="info">
+	    <p>Double-click to edit a todo</p>
+	    <p>Created by <a href="http://github.com/Ghost-White">Ghost-White</a></p>
+	</footer>
+</div>
+
+
+<!-- ************************************* template begin *********************************** -->
+<!-- 针对模型的模板 -->
+<script id="todo-template" type="text/x-handlebars-template">
+    <!-- 这里对todo模型数组进行迭代循环 -->
+    {{#this}}
+    <!-- 会看到，这里具有简单的if语句，即这里具备显示逻辑 -->
+    <li {{#if completed}}class="completed"{{/if}} data-id="{{id}}">
+        <div class="view">
+	        <div class="toggle-wrap">
+	        	<input class="toggle" type="checkbox" {{#if completed}}checked{{/if}}>
+	        </div>
+            
+            <label>{{title}}</label>
+            <div class="destroy"><button onclick="destory()"></button></div>
+        </div>
+        <input class="edit" value="{{title}}">
+    </li>
+    {{/this}}
+</script>
+<!-- /针对模型的模板 -->
+<!-- footer模板，记录还剩下多少没有完成等 -->
+<script id="footer-template" type="text/x-handlebars-template">
+    <span id="todo-count"><strong>{{activeTodoCount}}</strong> {{activeTodoWord}} left</span>
+    {{#if completedTodos}}
+        <button id="clear-completed">Clear completed ({{completedTodos}})</button>
+    {{/if}}
+</script>
+<!-- /footer模板 -->
+<!-- ************************************* template end *********************************** -->
+
+<script src="js/base.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/handlebars.js"></script>
+
+<!-- app begin -->
+<script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+#wrapper{
+	/*background: url('../img/background.jpg');*/
+	width: 600px;
+	margin: 50px auto;
+	text-align: center;
+	color: #696969;
+}
+#header{
+  color: #D3D3D3;
+  position: relative;
+}
+#header h1{
+	height: 106px;
+	font-size: 80px;
+	text-align: center; 
+}
+
+#header .input{
+	width: 400px;
+	height: 60px;
+	margin: 0 auto;
+	box-shadow: 2px 2px 60px #D3D3D3,-2px 0 30px #D3D3D3;
+	color: #666;
+}
+#header .input>label{
+	display: block;
+	float: left;
+	width: 60px;
+	height: 60px;
+	background: url('../img/1.png');
+	background-repeat: no-repeat;
+	background-size: 60px 60px;
+}
+#toggle-all{
+	width: 0;
+	height: 0;
+}
+#new-todo{
+	display: block;
+	float: right;
+  height: 60px;
+  width: 330px;
+  border: none;
+  outline: none;
+  font-size: 24px;
+}
+::-webkit-input-placeholder {
+	color: #DCDCDC;
+	font-style: italic;
+}
+
+
+/*main*/
+#todo-list{
+	position: relative;
+	width: 400px;
+	margin: 0 auto;
+	background:white;
+	box-shadow: 2px 0 30px #D3D3D3,-2px 0 30px #D3D3D3;
+}
+
+#todo-list li{
+	list-style: none;
+	height: 60px;
+	width: 400px;
+	position: relative;
+}
+#todo-list li:first-child{
+	border-top: 1px solid #ccc;
+}
+#todo-list li .view{
+	width: 100%;
+	height: 60px;
+	overflow: hidden;
+	display: flex;
+}
+#todo-list li .toggle-wrap{
+	width: 60px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	-webkit-align-items:center;
+	-webkit-justify-content:center;
+}
+#todo-list li .view>label{
+	width: 280px;
+	height: 60px;
+	font-size: 24px;
+	line-height: 60px;
+}
+#todo-list li .destroy{
+	height: 60px;
+	width: 60px;
+	border:none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	-webkit-align-items:center;
+	-webkit-justify-content:center;
+	
+}
+#todo-list li .destroy button{
+	width: 20px;
+	height: 20px;
+	border: none;
+	background-image: url('../img/destroy.png');
+	background-size: 20px 20px;
+	background-repeat: none;
+	background-attachment: center;
+}
+#todo-list li .destroy button:hover{
+	background-image: url('../img/destroy2.png');
+}
+#todo-list li>input{
+	z-index: 20;
+	position: absolute;
+	height: 60px;
+	width: 280px;
+	left: 60px;
+	top: 0;
+	border: none;
+	font-size: 24px;
+}
+/*footer*/
+#footer{
+	width: 400px;
+	height: 40px;
+	padding: 5px;
+	margin: 0 auto;
+}
